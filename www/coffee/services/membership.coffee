@@ -1,4 +1,4 @@
-TicTacToe.factory 'Join', (Socket) ->
+TicTacToe.factory 'Membership', (Socket) ->
   service =
     registered: false
     nick: null

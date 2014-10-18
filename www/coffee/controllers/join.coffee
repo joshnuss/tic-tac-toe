@@ -1,4 +1,4 @@
-TicTacToe.controller 'JoinCtrl', ($scope, Join) ->
+TicTacToe.controller 'JoinCtrl', ($scope, Membership) ->
   $scope.user = {}
   $scope.registered = false
   $scope.error = null
@@ -6,8 +6,11 @@ TicTacToe.controller 'JoinCtrl', ($scope, Join) ->
   $scope.$watch (-> Join.registered), ->
     $scope.registered = Join.registered
 
-  $scope.$watch (-> Join.error), ->
-    $scope.error = Join.error
+  $scope.$watch (-> Membership.registered), ->
+    $scope.registered = Membership.registered
+
+  $scope.$watch (-> Membership.error), ->
+    $scope.error = Membership.error
 
   $scope.register = ->
-    Join.register($scope.user.nick)
+    Membership.register($scope.user.nick)
