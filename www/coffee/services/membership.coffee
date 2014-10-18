@@ -20,7 +20,6 @@ TicTacToe.factory 'Membership', (Socket) ->
 
   Socket.on 'members:list', (nicks) ->
     nicks.splice(nicks.indexOf(service.nick), 1)
-    console.log nicks
     service.nicks = nicks
 
   service

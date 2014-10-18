@@ -26,3 +26,4 @@ io.on 'connection', (socket) ->
     if socket.nick
       index = nicks.indexOf(socket.nick)
       nicks.splice(index, 1)
+      socket.broadcast.emit('members:list', nicks)
