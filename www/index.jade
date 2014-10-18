@@ -2,9 +2,22 @@ html
   head
     title Tic Tac Toe
 
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+
     link(rel="stylesheet" type='text/css' href='/css/application.css')
-    script(src="/socket.io/socket.io.js")
-    script(src="/js/application.js")
 
   body
-    h1 Tic Tac Toe
+    .container-fluid
+      .row
+        .col-md-12
+          .page-header
+            h1 Tic Tac Toe
+
+    script(src='lib/jquery/dist/jquery.js')
+    script(src='lib/bootstrap-sass/dist/js/bootstrap.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='lib/angular/angular.min.js')
+    script(src='lib/angular-route/angular-route.min.js')
+    script(src='lib/angular-socket-io/socket.min.js')
+    script(src='js/application.js')
