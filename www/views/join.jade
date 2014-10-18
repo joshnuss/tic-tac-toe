@@ -1,0 +1,16 @@
+.container
+  .row(ng-if='!registered')
+    .jumbotron
+      h1 Join
+
+      form.form-inline(ng-submit='register()')
+        .form-group
+          label.sr-only Nickname
+
+          .input-group
+            input.form-control.input-lg(name='nick' ng-model='user.nick' required autofocus placeholder='Nickname')
+
+            .input-group-addon
+              span Register
+
+        p.error(ng-bind='error')
