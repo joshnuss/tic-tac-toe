@@ -1,7 +1,7 @@
 .container
   .row(ng-if='!registered')
     .jumbotron
-      h1 Join
+      h1 Register
 
       form.form-inline(ng-submit='register()')
         .form-group
@@ -14,3 +14,13 @@
               span Register
 
         p.error(ng-bind='error')
+
+  .row(ng-if='registered')
+    .jumbotron
+      h1 Join
+
+      p.waiting(ng-show='nicks.length == 0') Waiting for others to join...
+
+      ul(ng-show='nicks.length > 0')
+        li(ng-repeat='nick in nicks')
+          a(ng-bind='nick')

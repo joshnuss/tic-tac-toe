@@ -17,11 +17,12 @@ io.on 'connection', (socket) ->
     if nicks.indexOf(nick) > -1
       socket.emit('register:error', 'Name already taken.')
     else
-      nicks.push(nick)
       socket.nick = nick
-      socket.emit('register:success', nick)
+      socket.emit('register:success', nick: nick, nicks: nicks)
+      nicks.push(nick)
+      socket.broadcast.emit('members:list', nicks)
 
   socket.on 'disconnect', ->
     if socket.nick
       index = nicks.indexOf(socket.nick)
-      delete nicks[index]
+      nicks.splice(index, 1)
